@@ -1,3 +1,4 @@
+//to save the password 
 function savePassword() {
     var passwordInput = document.getElementById('password');
     var password = passwordInput.value;
