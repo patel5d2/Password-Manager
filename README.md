@@ -111,30 +111,40 @@ A **demonstration** Chrome extension that showcases secure password storage usin
 
 ```
 Password-Manager/
-├── 📄 manifest.json          # Chrome extension manifest
-├── 🎨 popup.html             # Extension popup interface
-├── ⚙️ popup.js               # Core encryption/decryption logic
+├── 📄 manifest.json          # Chrome extension manifest (v3)
+├── 🎨 style.css              # Global styling and theme
 ├── 🔧 main.js                # Additional demo utilities
-├── 🖼️ f548522d-...jpeg       # Sample image asset
 ├── 📖 README.md              # Project documentation
+├── 🖼️ f548522d-...jpeg       # Sample image asset
+├── 📁 js/                    # JavaScript modules
+│   ├── ⚙️ crypto.js          # Cryptographic functions
+│   └── 🔄 popup.js           # UI logic and event handlers
+├── 📁 views/                 # User interface components
+│   └── 🎨 popup.html         # Extension popup interface
 └── 📁 .vscode/               # VS Code configuration
+    └── ⚙️ settings.json       # Editor settings
 ```
 
 ### 📋 File Descriptions
 
-| File | Purpose | Key Features |
-|------|---------|-------------|
-| `manifest.json` | Chrome extension configuration | Defines permissions, popup, and metadata |
-| `popup.html` | User interface | Clean, responsive popup design |
-| `popup.js` | Core functionality | Encryption, decryption, and storage logic |
-| `main.js` | Utility functions | Additional demo/development utilities |
+| File/Directory | Purpose | Key Features |
+|----------------|---------|-------------|
+| `manifest.json` | Chrome extension configuration | Manifest v3, permissions, popup configuration |
+| `style.css` | Global styling | Modern CSS, theming, responsive design |
+| `js/crypto.js` | Cryptographic core | AES-GCM encryption, PBKDF2 key derivation |
+| `js/popup.js` | UI logic | Event handlers, DOM manipulation, user interactions |
+| `views/popup.html` | User interface | Clean popup design, semantic HTML |
+| `main.js` | Development utilities | Additional demo/testing functions |
 
-### 🏗️ Architecture
+### 🏗️ Modular Architecture
 
-- **Frontend**: HTML5 + CSS3 for clean, modern UI
-- **Logic**: Vanilla JavaScript (ES6+) with Web Crypto API
-- **Storage**: Chrome's local storage API
-- **Security**: Client-side encryption with no external dependencies
+- **📱 Frontend**: Semantic HTML5 + Modern CSS3 in `/views`
+- **⚙️ Core Logic**: Modular JavaScript (ES6+) in `/js`
+  - `crypto.js`: Pure cryptographic functions
+  - `popup.js`: UI logic and user interactions
+- **🔒 Security**: Web Crypto API with zero external dependencies
+- **💾 Storage**: Chrome's secure local storage API
+- **🎨 Styling**: Centralized CSS with modern design patterns
 
 ---
 
@@ -163,14 +173,21 @@ To make this production-ready, implement:
 - [ ] Password strength validation
 - [ ] Two-factor authentication support
 - [ ] Secure password generation
+- [ ] Import/export functionality with encryption
+- [ ] Auto-fill capabilities for web forms
+- [ ] Cross-browser compatibility (Firefox, Edge)
+- [ ] Biometric authentication support
 
 ## 🔒 Technical Security Details
 
-- **Encryption Standard**: AES-256-GCM (AEAD)
-- **Key Derivation**: PBKDF2-SHA256 with 100,000 iterations
-- **Random Generation**: Cryptographically secure random number generation
+- **Encryption Standard**: AES-256-GCM (AEAD - Authenticated Encryption)
+- **Key Derivation**: PBKDF2-SHA256 with 310,000 iterations (NIST recommended)
+- **Salt Generation**: 128-bit cryptographically secure random salt
+- **IV Generation**: 96-bit random initialization vector per encryption
+- **Random Generation**: `crypto.getRandomValues()` for secure entropy
 - **Data Integrity**: Built-in authentication with GCM mode
-- **Storage**: Chrome's secure local storage API
+- **Storage**: Chrome's secure local storage API with JSON serialization
+- **Code Architecture**: Modular separation of cryptographic and UI concerns
 
 ## 👨‍💻 Author
 
