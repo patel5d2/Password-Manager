@@ -12,15 +12,23 @@
     input {
       margin-bottom: 10px;
     }
+    button {
+      margin-bottom: 5px; /* Add some space between buttons */
+      display: block; /* Make buttons block elements to stack them */
+      width: 100%; /* Make buttons fill the container width */
+    }
   </style>
-  <script src="popup.js"></script>
+  
 </head>
 
 <body>
   <h3>Password Manager</h3>
   <label for="password">Password:</label>
   <input type="password" id="password">
-  <button onclick="savePassword()">Save Password</button>
+  <button id="saveButton">Save Password</button>
+  <button id="loadButton">Load Password</button>
+
+  <script src="popup.js"></script>
 </body>
 
 </html>
