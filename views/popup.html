@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Vault</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <div id="loading-view" class="view">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="setup-view" class="view" style="display:none;">
+        <h3>Create Your Secure Vault</h3>
+        <p>Create a strong master password to secure all your data.</p>
+        <div class="form-group">
+            <label for="setup-password">Master Password</label>
+            <input type="password" id="setup-password" placeholder="Enter a strong password">
+        </div>
+        <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" placeholder="Confirm your password">
+        </div>
+        <button id="create-vault-btn">Create Vault</button>
+        <p id="setup-error" class="error-message"></p>
+    </div>
+
+    <div id="login-view" class="view" style="display:none;">
+        <h3>Unlock Your Vault</h3>
+        <div class="form-group">
+            <label for="login-password">Master Password</label>
+            <input type="password" id="login-password" placeholder="Enter your master password">
+        </div>
+        <button id="unlock-btn">Unlock</button>
+        <p id="login-error" class="error-message"></p>
+    </div>
+
+    <div id="vault-view" class="view" style="display:none;">
+        <div class="vault-header">
+            <h3>Your Vault</h3>
+            <button id="logout-btn" title="Lock Vault">Lock</button>
+        </div>
+        <div id="credentials-list">
+            </div>
+        <div class="vault-actions">
+            <hr>
+            <h4>Add New Login</h4>
+            <div class="form-group">
+                <input type="text" id="new-website" placeholder="Website (e.g., google.com)">
+            </div>
+            <div class="form-group">
+                <input type="text" id="new-username" placeholder="Username or Email">
+            </div>
+            <div class="form-group">
+                <input type="text" id="new-password" placeholder="Password">
+            </div>
+            <button id="add-credential-btn">Add to Vault</button>
+             <p id="vault-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <script src="../js/crypto.js"></script>
+    <script src="../js/popup.js"></script>
+</body>
+</html>
